@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import requests
 import re
 import random
@@ -14,8 +15,10 @@ from linebot.exceptions import (
 from linebot.models import *
 
 app = Flask(__name__)
-line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
-handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+#line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
+line_bot_api = LineBotApi('wbeBaLPb7xIuGymdaHU9yHy300QZ383XYgewhXLSoRe3TnlWo1xQuypNFpis1ExGrSTV1WpmtmQEiaR9tRPQHFUspwI9rVk2Ajfrg1WUwFpV9ewvq/vDx9LItfeNW+9y6Ih/OcwNpJPB/UfE9afIFwdB04t89/1O/w1cDnyilFU=')
+#handler = WebhookHandler('YOUR_CHANNEL_SECRET')
+handler = WebhookHandler('https://api.line.me/v2/bot/message/reply')
 
 picture = ["https://i.imgur.com/qKkE2bj.jpg",
            "https://i.imgur.com/QjMLPmx.jpg",
