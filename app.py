@@ -17,6 +17,9 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
+
+from linebot import LineBotApi
+from linebot.exceptions import LineBotApiError
 # end import module
 
 app = Flask(__name__)
@@ -74,7 +77,8 @@ def handle_message(event):
 
 
     if event.message.text == "cc":
-        profile = line_bot_api.get_profile('@all1212k')
+        #profile = line_bot_api.get_profile('@all1212k')
+        profile = line_bot_api.get_profile(user_id)
         a = (profile.display_name)
         b = (profile.user_id)
         c = (profile.picture_url)
