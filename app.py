@@ -29,9 +29,10 @@ def post(post_id):
     return '<h2>Tuna is good %s</h2>' % post_id
 
 @app.route('/temp')
+userThongpoon = '12f28ead31c048fe8de91270e807c871'
 def temp():
     sendMessage 'Temp report in period'
-    sendText(user,sendMessage)
+    sendText(userThongpoon,sendMessage)
     return '',200
 
 # end test route
