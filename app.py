@@ -29,10 +29,6 @@ def post(post_id):
     return '<h2>Tuna is good %s</h2>' % post_id
 # end test route
 
-sticker_message = StickerSendMessage(
-    package_id='1',
-    sticker_id='1'
-)
 
 # for line bot
 @app.route('/callback', methods=['POST'])
@@ -40,14 +36,22 @@ def callback():
     json_line = request.get_json()
     json_line = json.dumps(json_line)
     decoded = json.loads(json_line)
-    user = decoded["events"][0]['replyToken']
-    
-    messageGet = decoded["events"][0]['message']['text']
 
-    print('print User',user)
+    #user = user who send message to me
+    #messageGet = message that user send to me
+    #typeGet = type of data that user send to me
+    user = decoded["events"][0]['replyToken']
+    messageGet = decoded["events"][0]['message']['text']
+    typeGet = decoded["events"][0]['message']['type']
+    #print('print User',user)
+
+    if typeGet == 'text':
+        sendMessage = 'getType = text'
+
+    
     
     #sendText(user,'sendText')
-    sendText(user,sticker_message)
+    sendText(user,sendMessage)
     return '',200
 
 def sendText(user, text):
