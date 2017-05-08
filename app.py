@@ -365,7 +365,8 @@ def handle_message(event):
         content = eynyMovie()
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=content))
+            #TextSendMessage(text=content))
+            TextSendMessage(text='thongpoon'))
         return 0
     if event.message.text == "蘋果即時新聞":
         content = appleNews()
