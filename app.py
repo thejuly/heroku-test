@@ -3,7 +3,7 @@ from flask import Flask, request
 import json
 import requests
 
-userThongpoon = '12f28ead31c048fe8de91270e807c871'
+
 
 app = Flask(__name__)
 
@@ -26,6 +26,7 @@ def post(post_id):
 
 @app.route('/temp')
 def temp():
+    userThongpoon = '12f28ead31c048fe8de91270e807c871'
     sendMessage = 'Temp report in period'
     sendText(userThongpoon,sendMessage)
     return '',200
