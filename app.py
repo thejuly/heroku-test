@@ -59,7 +59,7 @@ def callback():
 def handle_message(event):
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
-    #print("event.message.text:", event.source.userId)
+    print("event.message.text:", event.source)
     if event.message.text == "aa":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text='your text is aa'))
         return 0
@@ -69,7 +69,7 @@ def handle_message(event):
         return 0
 
     if event.message.text == "dd":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=user_id))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.source))
         return 0
 
 
