@@ -82,7 +82,7 @@ def handle_message(event):
         #b = (profile.group_id) #for group_id
         #c = (profile.picture_url)
         #d = (profile.status_message)
-        line_bot_api.push_message('MyJob', TextSendMessage(text='Hello MyJob'))
+        line_bot_api.push_message('C91f0e330efd3aebe03c34bfd2bd40cce', TextSendMessage(text='Hello MyJob'))
         #line_bot_api.reply_message(event.reply_token, TextSendMessage(text=a))
         return 0
     
