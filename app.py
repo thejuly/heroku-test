@@ -72,13 +72,12 @@ def handle_message(event):
         return 0
 
     if event.message.text == "dd":
-        profile = line_bot_api.get_profile('U5e90b6b6d543d8d96be449d8fcd3ddbe')
+        profile = line_bot_api.get_profile('U5e90b6b6d543d8d96be449d8fcd3ddbe') #profile of sender => Thongpoon Auto 0684
         a = (profile.display_name)
         b = (profile.user_id)
         c = (profile.picture_url)
         d = (profile.status_message)
         line_bot_api.push_message(b, TextSendMessage(text='Hello World!'))
-        #line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
         return 0
 
 
@@ -88,7 +87,7 @@ def handle_message(event):
         b = (profile.user_id)
         c = (profile.picture_url)
         d = (profile.status_message)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=a))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event))
         return 0
 
 
