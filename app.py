@@ -26,7 +26,7 @@ def post(post_id):
 
 @app.route('/temp')
 def temp():
-    userThongpoon = '6050539655941'
+    userThongpoon = 'fdbc6747edd645dc9f77dca0eb120e94'
     sendMessage = 'Temp report in period'
     sendText(userThongpoon,sendMessage)
     return '',200
@@ -62,7 +62,7 @@ def callback():
         sendMessage = 'report Network'   
     
     #sendText(user,'sendText')
-    sendText(user,user)
+    sendText(user,json_line)
     return '',200
 
 def sendText(user, text):
