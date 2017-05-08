@@ -28,6 +28,11 @@ handler = WebhookHandler('49a9d31e3b8135ee7f85e6bc78848baa')
 #end Token
 
 
+@app.route('/report')
+def report():
+    line_bot_api.push_message('U5e90b6b6d543d8d96be449d8fcd3ddbe', TextSendMessage(text='Hello Thongpoon!'))
+    line_bot_api.push_message('C91f0e330efd3aebe03c34bfd2bd40cce', TextSendMessage(text='Hello MyJob'))
+    return 0    
 
 
 @app.route("/callback", methods=['POST'])
@@ -87,11 +92,11 @@ def handle_message(event):
         return 0
     
     if event.message.text == "dd":
-        profile = line_bot_api.get_profile('U5e90b6b6d543d8d96be449d8fcd3ddbe') #profile of sender => Thongpoon Auto 0684 (User)
-        a = (profile.display_name)
-        b = (profile.user_id) #for user_id
-        c = (profile.picture_url)
-        d = (profile.status_message)
+        #profile = line_bot_api.get_profile('U5e90b6b6d543d8d96be449d8fcd3ddbe') #profile of sender => Thongpoon Auto 0684 (User)
+        #a = (profile.display_name)
+        #b = (profile.user_id) #for user_id
+        #c = (profile.picture_url)
+        #d = (profile.status_message)
         #line_bot_api.push_message(b, TextSendMessage(text='Hello Thongpoon!'))
         line_bot_api.push_message('U5e90b6b6d543d8d96be449d8fcd3ddbe', TextSendMessage(text='Hello Thongpoon!'))
         return 0
