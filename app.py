@@ -76,13 +76,14 @@ def handle_message(event):
         return 0
 
     if event.message.text == "cc":
-        #profile = line_bot_api.get_profile('C91f0e330efd3aebe03c34bfd2bd40cce') #profile of sender => MyJob (Group)
-        #a = (profile.display_name)
-        #b = (profile.group_id) #for group_id
+        #profile = line_bot_api.get_profile('C91f0e330efd3aebe03c34bfd2bd40cce')
+        profile = line_bot_api.get_profile('U5e90b6b6d543d8d96be449d8fcd3ddbe')
+        a = (profile.display_name)
+        b = (profile.group_id) #for group_id
         #c = (profile.picture_url)
         #d = (profile.status_message)
         #line_bot_api.push_message(event.reply, TextSendMessage(text='Hello MyJob'))
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='aax'))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=a))
         return 0
     
     if event.message.text == "dd":
