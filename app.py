@@ -27,6 +27,13 @@ def profile(user):
 @app.route('/post/<int:post_id>')
 def post(post_id):
     return '<h2>Tuna is good %s</h2>' % post_id
+
+@app.route('/temp')
+def temp():
+    sendMessage 'Temp report in period'
+    sendText(user,sendMessage)
+    return '',200
+
 # end test route
 
 
