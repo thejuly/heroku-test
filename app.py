@@ -66,18 +66,6 @@ def handle_message(event):
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
 
-    #Thongpoon
-    json_line = request.get_json()
-    json_line = json.dumps(json_line)
-    decoded = json.loads(json_line)
-
-    #user = user who send message to me
-    #messageGet = message that user send to me
-    #typeGet = type of data that user send to me
-    user = decoded["events"][0]['replyToken']
-    messageGet = decoded["events"][0]['message']['text']
-    typeGet = decoded["events"][0]['message']['type']
-    #Thongpoon
     
     if event.message.text == "aa":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text='your text is aa'))
@@ -87,22 +75,40 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
         return 0
 
-    if event.message.text == "dd":
-        profile = line_bot_api.get_profile('U5e90b6b6d543d8d96be449d8fcd3ddbe') #profile of sender => Thongpoon Auto 0684
+    if event.message.text == "cc":
+        profile = line_bot_api.get_profile('C91f0e330efd3aebe03c34bfd2bd40cce') #profile of sender => MyJob (Group)
         a = (profile.display_name)
         b = (profile.user_id)
         c = (profile.picture_url)
         d = (profile.status_message)
-        line_bot_api.push_message(b, TextSendMessage(text='Hello World!'))
+        line_bot_api.push_message(b, TextSendMessage(text='Hello MyJob'))
+        return 0
+    
+    if event.message.text == "dd":
+        profile = line_bot_api.get_profile('U5e90b6b6d543d8d96be449d8fcd3ddbe') #profile of sender => Thongpoon Auto 0684 (User)
+        a = (profile.display_name)
+        b = (profile.user_id)
+        c = (profile.picture_url)
+        d = (profile.status_message)
+        line_bot_api.push_message(b, TextSendMessage(text='Hello Thongpoon!'))
         return 0
 
 
-    if event.message.text == "cc":
-        profile = line_bot_api.get_profile('U5e90b6b6d543d8d96be449d8fcd3ddbe')
-        a = (profile.display_name)
-        b = (profile.user_id)
-        c = (profile.picture_url)
-        d = (profile.status_message)
+    if event.message.text == "json":
+        
+        #Thongpoon
+        json_line = request.get_json()
+        json_line = json.dumps(json_line)
+        decoded = json.loads(json_line)
+
+        #user = user who send message to me
+        #messageGet = message that user send to me
+        #typeGet = type of data that user send to me
+        user = decoded["events"][0]['replyToken']
+        messageGet = decoded["events"][0]['message']['text']
+        typeGet = decoded["events"][0]['message']['type']
+        #Thongpoon
+    
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=json_line))
         return 0
 
