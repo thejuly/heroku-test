@@ -118,16 +118,21 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    # cmd = defaultdict(default_factory, command)
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
-    if event.message.text == "eyny":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='thongpoon'))
-        return 0
-
     if event.message.text == "aa":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text='your text is aa'))
         return 0
+
+    if event.message.text == "bb":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='your text is bb'))
+        return 0
+
+
+
+
+
+
 
 
 
