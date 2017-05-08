@@ -65,7 +65,7 @@ def handle_message(event):
         return 0
 
     if event.message.text == "bb":
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='your text is bb'))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
         return 0
 
 
