@@ -78,7 +78,7 @@ def handle_message(event):
     if event.message.text == "cc":
         profile = line_bot_api.get_profile('C91f0e330efd3aebe03c34bfd2bd40cce') #profile of sender => MyJob (Group)
         a = (profile.display_name)
-        b = (profile.user_id)
+        b = (profile.group_id) #for group_id
         c = (profile.picture_url)
         d = (profile.status_message)
         #line_bot_api.push_message(event.reply, TextSendMessage(text='Hello MyJob'))
@@ -88,7 +88,7 @@ def handle_message(event):
     if event.message.text == "dd":
         profile = line_bot_api.get_profile('U5e90b6b6d543d8d96be449d8fcd3ddbe') #profile of sender => Thongpoon Auto 0684 (User)
         a = (profile.display_name)
-        b = (profile.user_id)
+        b = (profile.user_id) #for user_id
         c = (profile.picture_url)
         d = (profile.status_message)
         line_bot_api.push_message(b, TextSendMessage(text='Hello Thongpoon!'))
