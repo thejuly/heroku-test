@@ -36,7 +36,7 @@ def callback():
     json_line = json.dumps(json_line)
     decoded = json.loads(json_line)
     user = decoded["events"][0]['replyToken']
-    messageGet = ["events"][0]['replyToken']
+    messageGet = ["events"][0]['message']
     #id=[d['replyToken'] for d in user][0]
     #print(json_line)
     print('print User',user)
