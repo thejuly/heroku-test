@@ -4,7 +4,6 @@ from flask import Flask, request
 import json
 import requests
 
-
 import re
 import random
 from bs4 import BeautifulSoup
@@ -19,9 +18,14 @@ from linebot.exceptions import (
 )
 from linebot.models import *
 
+# end import module
+
+
+
+
 app = Flask(__name__)
-line_bot_api = LineBotApi('wbeBaLPb7xIuGymdaHU9yHy300QZ383XYgewhXLSoRe3TnlWo1xQuypNFpis1ExGrSTV1WpmtmQEiaR9tRPQHFUspwI9rVk2Ajfrg1WUwFpV9ewvq/vDx9LItfeNW+9y6Ih/OcwNpJPB/UfE9afIFwdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('49a9d31e3b8135ee7f85e6bc78848baa')
+line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
+handler = WebhookHandler('YOUR_CHANNEL_SECRET')
 
 picture = ["https://i.imgur.com/qKkE2bj.jpg",
            "https://i.imgur.com/QjMLPmx.jpg",
@@ -533,8 +537,38 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, buttons_template)
         return 0
 
-    buttons_template = 'thongpoon'
+    buttons_template = TemplateSendMessage(
+        alt_text='Buttons template',
+        template=ButtonsTemplate(
+            title='選擇服務',
+            text='請選擇',
+            thumbnail_image_url='https://i.imgur.com/kzi5kKy.jpg',
+            actions=[
+                MessageTemplateAction(
+                    label='開始玩',
+                    text='開始玩'
+                ),
+                URITemplateAction(
+                    label='影片介紹 阿肥bot',
+                    uri='https://youtu.be/1IxtWgWxtlE'
+                ),
+                URITemplateAction(
+                    label='如何建立自己的 Line Bot',
+                    uri='https://github.com/twtrubiks/line-bot-tutorial'
+                ),
+                URITemplateAction(
+                    label='聯絡作者',
+                    uri='https://www.facebook.com/TWTRubiks?ref=bookmarks'
+                )
+            ]
+        )
+    )
     line_bot_api.reply_message(event.reply_token, buttons_template)
+
+
+
+
+
 
 
 
