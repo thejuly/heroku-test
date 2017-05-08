@@ -134,7 +134,7 @@ def handle_message(event):
 
 
     if event.message.text == "cc":
-        line_bot_api.push_message('Auto Thongpoon 0684', TextSendMessage(text='Hello World!'))
+        line_bot_api.push_message('<Auto Thongpoon 0684>', TextSendMessage(text='Hello World!'))
         return 0
 
 
