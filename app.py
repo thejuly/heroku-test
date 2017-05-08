@@ -215,145 +215,7 @@ def crawPage_Gossiping(url, soup):
             print('delete')
 
 
-def pttGossiping():
-    rs = requests.session()
-    load = {
-        'from': '/bbs/Gossiping/index.html',
-        'yes': 'yes'
-    }
-    res = rs.post('https://www.ptt.cc/ask/over18', verify=False, data=load)
-    soup = BeautifulSoup(res.text, 'html.parser')
-    ALLpageURL = soup.select('.btn.wide')[1]['href']
-    start_page = int(getPageNumber(ALLpageURL)) + 1
-    index_list = []
-    for page in range(start_page, start_page - 2, -1):
-        page_url = 'https://www.ptt.cc/bbs/Gossiping/index' + str(page) + '.html'
-        index_list.append(page_url)
 
-    # 抓取 文章標題 網址 推文數
-    while index_list:
-        index = index_list.pop(0)
-        res = rs.get(index, verify=False)
-        soup = BeautifulSoup(res.text, 'html.parser')
-        # 如網頁忙線中,則先將網頁加入 index_list 並休息1秒後再連接
-        if (soup.title.text.find('Service Temporarily') > -1):
-            index_list.append(index)
-            # print u'error_URL:',index
-            # time.sleep(1)
-        else:
-            crawPage_Gossiping(index, soup)
-            # print u'OK_URL:', index
-            # time.sleep(0.05)
-    content = ''
-    for index, article in enumerate(article_gossiping, 0):
-        if index == 15:
-            return content
-        data = article[1] + "\n" + article[0] + "\n\n"
-        content += data
-    return content
-
-
-def pttBeauty():
-    rs = requests.session()
-    res = rs.get('https://www.ptt.cc/bbs/Beauty/index.html', verify=False)
-    soup = BeautifulSoup(res.text, 'html.parser')
-    ALLpageURL = soup.select('.btn.wide')[1]['href']
-    start_page = int(getPageNumber(ALLpageURL)) + 1
-    page_term = 3  # crawler count
-    push_rate = 10  # 推文
-    index_list = []
-    for page in range(start_page, start_page - page_term, -1):
-        page_url = 'https://www.ptt.cc/bbs/Beauty/index' + str(page) + '.html'
-        index_list.append(page_url)
-
-    # 抓取 文章標題 網址 推文數
-    while index_list:
-        index = index_list.pop(0)
-        res = rs.get(index, verify=False)
-        soup = BeautifulSoup(res.text, 'html.parser')
-        # 如網頁忙線中,則先將網頁加入 index_list 並休息1秒後再連接
-        if (soup.title.text.find('Service Temporarily') > -1):
-            index_list.append(index)
-            # print u'error_URL:',index
-            # time.sleep(1)
-        else:
-            crawPage(index, push_rate, soup)
-            # print u'OK_URL:', index
-            # time.sleep(0.05)
-    content = ''
-    for article in article_list:
-        data = "[" + str(article[0]) + "] push" + article[2] + "\n" + article[1] + "\n\n"
-        content += data
-    return content
-
-
-def pttHot():
-    targetURL = 'http://disp.cc/b/PttHot'
-    print('Start parsing pttHot....')
-    rs = requests.session()
-    res = rs.get(targetURL, verify=False)
-    soup = BeautifulSoup(res.text, 'html.parser')
-    content = ""
-    for data in soup.select('#list div.row2 div span.listTitle'):
-        title = data.text
-        link = "http://disp.cc/b/" + data.find('a')['href']
-        if data.find('a')['href'] == "796-59l9":
-            break
-        content += title + "\n" + link + "\n\n"
-    return content
-
-
-def movie():
-    targetURL = 'http://www.atmovies.com.tw/movie/next/0/'
-    print('Start parsing movie ...')
-    rs = requests.session()
-    res = rs.get(targetURL, verify=False)
-    res.encoding = 'utf-8'
-    soup = BeautifulSoup(res.text, 'html.parser')
-    content = ""
-    for index, data in enumerate(soup.select('ul.filmNextListAll a')):
-        if index == 20:
-            return content
-        title = data.text.replace('\t', '').replace('\r', '')
-        link = "http://www.atmovies.com.tw" + data['href']
-        content += title + "\n" + link + "\n"
-    return content
-
-
-def technews():
-    targetURL = 'https://technews.tw/'
-    print('Start parsing movie ...')
-    rs = requests.session()
-    res = rs.get(targetURL, verify=False)
-    res.encoding = 'utf-8'
-    soup = BeautifulSoup(res.text, 'html.parser')
-    content = ""
-
-    for index, data in enumerate(soup.select('article div h1.entry-title a')):
-        if index == 12:
-            return content
-        title = data.text
-        link = data['href']
-        content += title + "\n" + link + "\n\n"
-    return content
-
-
-def panx():
-    targetURL = 'https://panx.asia/'
-    print('Start parsing ptt hot....')
-    rs = requests.session()
-    res = rs.get(targetURL, verify=False)
-    soup = BeautifulSoup(res.text, 'html.parser')
-    content = ""
-    for data in soup.select('div.container div.row div.desc_wrap h2 a'):
-        title = data.text
-        link = data['href']
-        content += title + "\n" + link + "\n\n"
-    return content
-
-
-def default_factory():
-    return 'not command'
 
 
 @handler.add(MessageEvent, message=TextMessage)
@@ -365,6 +227,9 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text='thongpoon'))
         return 0
 
+    if event.message.text == "aa":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='your text is aa'))
+        return 0
 
 
 
