@@ -26,7 +26,7 @@ def post(post_id):
 
 @app.route('/temp')
 def temp():
-    userThongpoon = '12f28ead31c048fe8de91270e807c871'
+    userThongpoon = '6050539655941'
     sendMessage = 'Temp report in period'
     sendText(userThongpoon,sendMessage)
     return '',200
