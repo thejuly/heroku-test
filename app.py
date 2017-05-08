@@ -45,10 +45,17 @@ def callback():
     typeGet = decoded["events"][0]['message']['type']
     #print('print User',user)
 
-    if typeGet == 'text':
-        sendMessage = 'getType = text'
+    if messageGet == 'Temp':
+        sendMessage = 'report temp'
 
-    
+    if messageGet == 'Rec':
+        sendMessage = 'report rectifier'
+
+    if messageGet == 'Cont':
+        sendMessage = 'report Controller'        
+
+    if messageGet == 'Netw':
+        sendMessage = 'report Network'   
     
     #sendText(user,'sendText')
     sendText(user,sendMessage)
