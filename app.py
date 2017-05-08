@@ -36,10 +36,12 @@ def callback():
     json_line = json.dumps(json_line)
     decoded = json.loads(json_line)
     user = decoded["events"][0]['replyToken']
+    
     #id=[d['replyToken'] for d in user][0]
     #print(json_line)
     print('print User',user)
-    sendText(user,'sendText')
+    #sendText(user,'sendText')
+    sendText(user,json_line)
     return '',200
 
 def sendText(user, text):
