@@ -363,10 +363,7 @@ def handle_message(event):
     print("event.message.text:", event.message.text)
     if event.message.text == "eyny":
         content = eynyMovie()
-        line_bot_api.reply_message(
-            event.reply_token,
-            #TextSendMessage(text=content))
-            TextSendMessage(text='thongpoon'))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='thongpoon'))
         return 0
 
 
