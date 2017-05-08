@@ -32,19 +32,6 @@ handler = WebhookHandler('49a9d31e3b8135ee7f85e6bc78848baa')
 
 @app.route("/callback", methods=['POST'])
 def callback():
-    #Thongpoon
-    json_line = request.get_json()
-    json_line = json.dumps(json_line)
-    decoded = json.loads(json_line)
-
-    #user = user who send message to me
-    #messageGet = message that user send to me
-    #typeGet = type of data that user send to me
-    user = decoded["events"][0]['replyToken']
-    messageGet = decoded["events"][0]['message']['text']
-    typeGet = decoded["events"][0]['message']['type']
-    #Thongpoon
-
     
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
@@ -78,6 +65,19 @@ def default(event):
 def handle_message(event):
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
+
+    #Thongpoon
+    json_line = request.get_json()
+    json_line = json.dumps(json_line)
+    decoded = json.loads(json_line)
+
+    #user = user who send message to me
+    #messageGet = message that user send to me
+    #typeGet = type of data that user send to me
+    user = decoded["events"][0]['replyToken']
+    messageGet = decoded["events"][0]['message']['text']
+    typeGet = decoded["events"][0]['message']['type']
+    #Thongpoon
     
     if event.message.text == "aa":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text='your text is aa'))
