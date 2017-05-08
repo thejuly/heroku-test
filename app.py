@@ -116,6 +116,10 @@ def callback():
 
 
 
+
+
+
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     print("event.reply_token:", event.reply_token)
@@ -129,7 +133,9 @@ def handle_message(event):
         return 0
 
 
-
+    if event.message.text == "cc":
+        line_bot_api.push_message('Auto Thongpoon 0684', TextSendMessage(text='Hello World!'))
+        return 0
 
 
 
