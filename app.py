@@ -62,7 +62,7 @@ def callback():
         sendMessage = 'report Network'   
     
     #sendText(user,'sendText')
-    sendText(user,sendMessage)
+    sendText(user,user)
     return '',200
 
 def sendText(user, text):
