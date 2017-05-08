@@ -29,6 +29,11 @@ def post(post_id):
     return '<h2>Tuna is good %s</h2>' % post_id
 # end test route
 
+sticker_message = StickerSendMessage(
+    package_id='1',
+    sticker_id='1'
+)
+
 # for line bot
 @app.route('/callback', methods=['POST'])
 def callback():
@@ -36,12 +41,13 @@ def callback():
     json_line = json.dumps(json_line)
     decoded = json.loads(json_line)
     user = decoded["events"][0]['replyToken']
+    
     messageGet = decoded["events"][0]['message']['text']
-    #id=[d['replyToken'] for d in user][0]
-    #print(json_line)
+
     print('print User',user)
+    
     #sendText(user,'sendText')
-    sendText(user,messageGet)
+    sendText(user,sticker_message)
     return '',200
 
 def sendText(user, text):
