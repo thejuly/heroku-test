@@ -78,7 +78,7 @@ def handle_message(event):
 
     if event.message.text == "cc":
         #profile = line_bot_api.get_profile('@all1212k')
-        profile = line_bot_api.get_profile(user_id)
+        profile = line_bot_api.get_profile('U5e90b6b6d543d8d96be449d8fcd3ddbe')
         a = (profile.display_name)
         b = (profile.user_id)
         c = (profile.picture_url)
