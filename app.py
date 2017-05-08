@@ -83,7 +83,7 @@ def handle_message(event):
         b = (profile.user_id)
         c = (profile.picture_url)
         d = (profile.status_message)
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=a))
         return 0
 
 
