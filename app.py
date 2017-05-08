@@ -41,7 +41,7 @@ def callback():
     #print(json_line)
     print('print User',user)
     #sendText(user,'sendText')
-    sendText(user,decoded)
+    sendText(user,messageGet)
     return '',200
 
 def sendText(user, text):
