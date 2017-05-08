@@ -68,13 +68,17 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
         return 0
 
+    if event.message.text == "dd":
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=user_id))
+        return 0
+
 
     if event.message.text == "cc":
-        profile = line_bot_api.get_profile(user_id)
-        a = (profile.display_name)
-        b = (profile.user_id)
-        c = (profile.picture_url)
-        d = (profile.status_message)
+        #profile = line_bot_api.get_profile(user_id)
+        #a = (profile.display_name)
+        #b = (profile.user_id)
+        #c = (profile.picture_url)
+        #d = (profile.status_message)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
         return 0
 
