@@ -97,6 +97,7 @@ def handle_message(event):
     ########################################## Dcs report User ask ################################################
     if event.message.text == "Serv":
         msg = ''
+        '''
         try: conn = psycopg2.connect("dbname='dasb9esrufs365' user='uuozdbvgdzdgcd' host='ec2-54-225-118-55.compute-1.amazonaws.com' password='d32e2db9cc2e155313cfd2b65a537c996d96fdf6868fcf4e355e2a3cf88c99ad'")
         except: print 'cannot connect'
         try: cur.execute("""SELECT * from t_report""")
@@ -106,6 +107,7 @@ def handle_message(event):
 
         cur.close()
         conn.close()
+        '''
 
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Serv'))
         return 0
@@ -127,7 +129,7 @@ def handle_message(event):
         #b = (profile.group_id) #for group_id
         #c = (profile.picture_url)
         #d = (profile.status_message)
-        line_bot_api.push_message('C91f0e330efd3aebe03c34bfd2bd40cce', TextSendMessage(text='Hello MyJob'))
+        line_bot_api.push_message('C22aaa682ea40676ee0f1d6fd120265b4', TextSendMessage(text='Hello MyJob'))
         #line_bot_api.reply_message(event.reply_token, TextSendMessage(text=a))
         return 0
     
@@ -138,7 +140,7 @@ def handle_message(event):
         #c = (profile.picture_url)
         #d = (profile.status_message)
         #line_bot_api.push_message(b, TextSendMessage(text='Hello Thongpoon!'))
-        line_bot_api.push_message('U5e90b6b6d543d8d96be449d8fcd3ddbe', TextSendMessage(text='Hello Thongpoon!'))
+        line_bot_api.push_message('"Ub4c61cd90d77325b3cf97e4f9d881f26', TextSendMessage(text='Hello Thongpoon!'))
         return 0
 
 
