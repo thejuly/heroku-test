@@ -107,7 +107,7 @@ def handle_message(event):
         cur.close()
         conn.close()
 
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Serv'))
         return 0
     ########################################## Dcs report User ask ################################################
     
