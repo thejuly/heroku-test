@@ -27,7 +27,31 @@ line_bot_api = LineBotApi('wbeBaLPb7xIuGymdaHU9yHy300QZ383XYgewhXLSoRe3TnlWo1xQu
 handler = WebhookHandler('49a9d31e3b8135ee7f85e6bc78848baa')
 #end Token
 
+# for test route
+@app.route('/')
+def hello():
+    return 'Hello World!'
 
+@app.route('/tuna')
+def tuna():
+    return '<h2>Tuna is good</h2>'
+
+@app.route('/profile/<user>')
+def profile(user):
+    return '<h2>Tuna is good %s</h2>' % user
+
+@app.route('/post/<int:post_id>')
+def post(post_id):
+    return '<h2>Tuna is good %s</h2>' % post_id
+
+@app.route('/temp')
+def temp():
+    userThongpoon = 'fdbc6747edd645dc9f77dca0eb120e94'
+    sendMessage = 'Temp report in period'
+    sendText(userThongpoon,sendMessage)
+    return '',200
+
+# end test route
 
 
 @app.route("/callback", methods=['POST'])
