@@ -3,6 +3,7 @@ import os
 from flask import Flask, request
 import json
 import requests
+import psycopg2
 
 import re
 import random
@@ -93,6 +94,23 @@ def handle_message(event):
     print("event.reply_token:", event.reply_token)
     print("event.message.text:", event.message.text)
 
+    ########################################## Dcs report User ask ################################################
+    if event.message.text == "Serv":
+        msg = ''
+        try: conn = psycopg2.connect("dbname='dasb9esrufs365' user='uuozdbvgdzdgcd' host='ec2-54-225-118-55.compute-1.amazonaws.com' password='d32e2db9cc2e155313cfd2b65a537c996d96fdf6868fcf4e355e2a3cf88c99ad'")
+        except: print 'cannot connect'
+        try: cur.execute("""SELECT * from t_report""")
+        except: print 'cannot select'
+        for row in rows:
+            msg = row[1] #Server
+
+        cur.close()
+        conn.close()
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
+        return 0
+    ########################################## Dcs report User ask ################################################
+    
     
     if event.message.text == "aa":
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text='your text is aa'))
