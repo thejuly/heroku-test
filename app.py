@@ -20,13 +20,34 @@ from linebot.models import *
 
 from linebot import LineBotApi
 from linebot.exceptions import LineBotApiError
-# end import module
+#  end import module
 
 app = Flask(__name__)
-line_bot_api = LineBotApi('wbeBaLPb7xIuGymdaHU9yHy300QZ383XYgewhXLSoRe3TnlWo1xQuypNFpis1ExGrSTV1WpmtmQEiaR9tRPQHFUspwI9rVk2Ajfrg1WUwFpV9ewvq/vDx9LItfeNW+9y6Ih/OcwNpJPB/UfE9afIFwdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('49a9d31e3b8135ee7f85e6bc78848baa')
+'''
+#for DCS-Bot
+line_bot_api = LineBotApi('wbeBaLPb7xIuGymdaHU9yHy300QZ383XYgewhXLSoRe3TnlWo1xQuypNFpis1ExGrSTV1WpmtmQEiaR9tRPQHFUspwI9rVk2Ajfrg1WUwFpV9ewvq/vDx9LItfeNW+9y6Ih/OcwNpJPB/UfE9afIFwdB04t89/1O/w1cDnyilFU=') # Channel Access Token
+handler = WebhookHandler('49a9d31e3b8135ee7f85e6bc78848baa') #Channel Secret
+'''
+#for Report
+line_bot_api = LineBotApi('CFaQZEnotjzhRjT4JMbcMyA0cksM4HE9Zu7HA8xQdWVbOMh6HLdeiCp2NKv6gmjNmJHs+NhWvnk8DYUZ3r8mCX6goDgYby/EV9s+/2mR9piHnPUVUGzWhRlmWw5K8RQG8iwgtSPnw89zEaUILnhtMwdB04t89/1O/w1cDnyilFU=') # Channel Access Token
+handler = WebhookHandler('f1e03e9bb185204d4494a1cce993970a') #Channel Secret
 #end Token
 
+
+def hello():
+    return 'Hello World!'
+
+@app.route('/test')
+def tuna():
+    return '<h2>Hello Thongpoon</h2>'
+
+@app.route('/profile/<user>')
+def profile(user):
+    return '<h2>Tuna is good %s</h2>' % user
+
+@app.route('/post/<int:post_id>')
+def post(post_id):
+    return '<h2>Your ID is %s</h2>' % post_id
 
 @app.route('/report')
 def report():
