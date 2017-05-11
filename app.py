@@ -140,7 +140,7 @@ def handle_message(event):
         #c = (profile.picture_url)
         #d = (profile.status_message)
         #line_bot_api.push_message(b, TextSendMessage(text='Hello Thongpoon!'))
-        line_bot_api.push_message('"Ub4c61cd90d77325b3cf97e4f9d881f26', TextSendMessage(text='Hello Thongpoon!'))
+        line_bot_api.push_message('Ub4c61cd90d77325b3cf97e4f9d881f26', TextSendMessage(text='Hello Thongpoon!'))
         return 0
 
 
