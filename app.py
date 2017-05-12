@@ -132,7 +132,7 @@ def handle_message(event):
 
     ########################################## Dcs report User ask ################################################
     if event.message.text == "Serv":
-        msg = 'x'
+        msg = 'No Data'
         try:
             cur.execute("""SELECT * from t_report""")
         except:
@@ -144,6 +144,90 @@ def handle_message(event):
 
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
         return 0
+
+    if event.message.text == "Temp":
+        msg = 'No Data'
+        try:
+            cur.execute("""SELECT * from t_report""")
+        except:
+            print 'cannot select'
+
+        rows = cur.fetchall()
+        for row in rows:
+            msg = row[2]
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
+        return 0
+
+    if event.message.text == "Rect":
+        msg = 'No Data'
+        try:
+            cur.execute("""SELECT * from t_report""")
+        except:
+            print 'cannot select'
+
+        rows = cur.fetchall()
+        for row in rows:
+            msg = row[3]
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
+        return 0
+
+    if event.message.text == "Netw":
+        msg = 'No Data'
+        try:
+            cur.execute("""SELECT * from t_report""")
+        except:
+            print 'cannot select'
+
+        rows = cur.fetchall()
+        for row in rows:
+            msg = row[4]
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
+        return 0
+
+    if event.message.text == "Cont":
+        msg = 'No Data'
+        try:
+            cur.execute("""SELECT * from t_report""")
+        except:
+            print 'cannot select'
+
+        rows = cur.fetchall()
+        for row in rows:
+            msg = row[5]
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
+        return 0
+
+    if event.message.text == "Net":
+        msg = 'No Data'
+        try:
+            cur.execute("""SELECT * from t_report""")
+        except:
+            print 'cannot select'
+
+        rows = cur.fetchall()
+        for row in rows:
+            msg = row[6]
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
+        return 0
+
+    if event.message.text == "Con":
+        msg = 'No Data'
+        try:
+            cur.execute("""SELECT * from t_report""")
+        except:
+            print 'cannot select'
+
+        rows = cur.fetchall()
+        for row in rows:
+            msg = row[7]
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
+        return 0      
     ########################################## Dcs report User ask ################################################
     
     
