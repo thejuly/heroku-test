@@ -32,7 +32,7 @@ from linebot.exceptions import LineBotApiError
 
 
 try:
-    conn = psycopg2.connect("dbname='d48rcsj3u2mk0u' user='wjlkoqphcavoff' host='ec2-54-225-236-102.compute-1.amazonaws.com' password='f8c7caa977ab93163754dea3c894587c02fee5e352d8f2c692d64f66f04e7569'")
+    conn = psycopg2.connect("dbname='dasb9esrufs365' user='uuozdbvgdzdgcd' host='ec2-54-225-118-55.compute-1.amazonaws.com' password='d32e2db9cc2e155313cfd2b65a537c996d96fdf6868fcf4e355e2a3cf88c99ad'")
     cur = conn.cursor()
 
 except:
@@ -79,7 +79,7 @@ def temp():
 @app.route('/serv')
 def temp():
     try:
-        cur.execute("""SELECT * from comments""")
+        cur.execute("""SELECT * from t_report""")
     except:
         print 'cannot select'
 
