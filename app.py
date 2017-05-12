@@ -227,7 +227,35 @@ def handle_message(event):
             msg = row[7]
 
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
-        return 0      
+        return 0
+
+    if event.message.text == "Report":
+        msg = 'No Data'
+        try:
+            cur.execute("""SELECT * from t_report""")
+        except:
+            print 'cannot select'
+
+        rows = cur.fetchall()
+        for row in rows:
+            msg = row[8]
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
+        return 0
+
+    if event.message.text == "Rpt":
+        msg = 'No Data'
+        try:
+            cur.execute("""SELECT * from t_report""")
+        except:
+            print 'cannot select'
+
+        rows = cur.fetchall()
+        for row in rows:
+            msg = row[9]
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
+        return 0        
     ########################################## Dcs report User ask ################################################
     
     
