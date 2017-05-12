@@ -23,6 +23,27 @@ from linebot import LineBotApi
 from linebot.exceptions import LineBotApiError
 # end import module
 
+
+
+
+
+
+
+
+
+try:
+    conn = psycopg2.connect("dbname='d48rcsj3u2mk0u' user='wjlkoqphcavoff' host='ec2-54-225-236-102.compute-1.amazonaws.com' password='f8c7caa977ab93163754dea3c894587c02fee5e352d8f2c692d64f66f04e7569'")
+    cur = conn.cursor()
+
+except:
+    print 'cannot connect'
+    
+
+
+
+
+
+
 app = Flask(__name__)
 #line_bot_api = LineBotApi('wbeBaLPb7xIuGymdaHU9yHy300QZ383XYgewhXLSoRe3TnlWo1xQuypNFpis1ExGrSTV1WpmtmQEiaR9tRPQHFUspwI9rVk2Ajfrg1WUwFpV9ewvq/vDx9LItfeNW+9y6Ih/OcwNpJPB/UfE9afIFwdB04t89/1O/w1cDnyilFU=') # Channel Access Token DCS-BOT
 #handler = WebhookHandler('49a9d31e3b8135ee7f85e6bc78848baa') # Channel Secret DCS-BOT
@@ -54,6 +75,21 @@ def temp():
     sendMessage = 'Temp report in period'
     sendText(userThongpoon,sendMessage)
     return '',200
+
+@app.route('/serv')
+def temp():
+    try:
+        cur.execute("""SELECT * from comments""")
+    except:
+        print 'cannot select'
+
+    rows = cur.fetchall()
+    for row in rows:
+        testx = row[1]
+    
+    #return 'Hello World!'
+    return testx
+    #return '',200
 
 # end test route
 
@@ -97,20 +133,8 @@ def handle_message(event):
     ########################################## Dcs report User ask ################################################
     if event.message.text == "Serv":
         msg = 'x'
-        
-        try: conn = psycopg2.connect("dbname='dasb9esrufs365' user='uuozdbvgdzdgcd' host='ec2-54-225-118-55.compute-1.amazonaws.com' password='d32e2db9cc2e155313cfd2b65a537c996d96fdf6868fcf4e355e2a3cf88c99ad'")
-        except: msg = 'conn' #print 'cannot connect'
-        '''
-        try: cur.execute("""SELECT * from t_report""")
-        except: print 'cannot select'
-        for row in rows:
-            msg = row[1] #Server
-        '''
-        cur.close()
-        conn.close()
-        
 
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Serv'))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
         return 0
     ########################################## Dcs report User ask ################################################
     
