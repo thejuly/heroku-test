@@ -133,6 +133,14 @@ def handle_message(event):
     ########################################## Dcs report User ask ################################################
     if event.message.text == "Serv":
         msg = 'x'
+        try:
+            cur.execute("""SELECT * from t_report""")
+        except:
+            print 'cannot select'
+
+        rows = cur.fetchall()
+        for row in rows:
+            msg = row[1]
 
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=msg))
         return 0
