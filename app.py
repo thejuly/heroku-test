@@ -77,7 +77,7 @@ def temp():
     return '',200
 
 @app.route('/serv')
-def temp():
+def serv():
     try:
         cur.execute("""SELECT * from t_report""")
     except:
