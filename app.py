@@ -32,7 +32,7 @@ from linebot.exceptions import LineBotApiError
 
 
 try:
-    conn = psycopg2.connect("dbname='dasb9esrufs365' user='uuozdbvgdzdgcd' host='ec2-54-225-118-55.compute-1.amazonaws.com' password='d32e2db9cc2e155313cfd2b65a537c996d96fdf6868fcf4e355e2a3cf88c99ad'")
+    conn = psycopg2.connect("dbname='d6nfkhldr8m73b' user='dxebvbtkaavoqw' host='ec2-54-235-114-242.compute-1.amazonaws.com' password='850c57e80ca8ddc9bd59b42511534ca024b3b02e98b85646746e937551fefeb8'")
     cur = conn.cursor()
 
 except:
