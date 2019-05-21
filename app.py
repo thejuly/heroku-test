@@ -55,7 +55,7 @@ handler = WebhookHandler('f1e03e9bb185204d4494a1cce993970a') # Channel Secret Re
 # for test route
 @app.route('/')
 def hello():
-    return 'Hello World!'
+    return 'Hello World! thongpoon'
 
 @app.route('/tuna')
 def tuna():
